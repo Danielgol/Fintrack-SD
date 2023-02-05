@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, Text, StatusBar } from 'react-native'
+import { View, StyleSheet, Text, StatusBar, Image } from 'react-native'
 
 import { Feather } from '@expo/vector-icons'
 
@@ -8,9 +8,7 @@ const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 :
 export default function Header() {
   return (
     <View style={styles.container}>
-    	<View style={styles.content}>
-      		<Text>Header do App!</Text>
-      	</View>
+      <Image style={styles.tinyLogo} source={require('../../../assets/logo-completa.png')}></Image>
     </View>
   );
 }
@@ -18,6 +16,13 @@ export default function Header() {
 const styles = StyleSheet.create({
   container: {
   	paddingTop: statusBarHeight,
-    backgroundColor: '#66CDAA'
+    backgroundColor: 'rgba(34,36,40,1)',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
+  
+  tinyLogo: {
+    width: '28%',
+    height: 28,
+  }
 });
