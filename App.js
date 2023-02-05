@@ -3,28 +3,21 @@ import { StyleSheet, Text, View } from 'react-native';
 import Header from './src/components/Header';
 
 import Home from './src/pages/Home';
-import AppLoading from 'expo-app-loading';
 import TabNavbar from './src/components/TabNavigation';
-
-import {
-  useFonts,
-  Jost_400Regular,
-  Jost_700Bold,
-  Jost_500Medium,
-  Jost_600SemiBold
-} from '@expo-google-fonts/jost'
+import { useFonts } from 'expo-font';
 
 export default function App() {
-  const [fontsLoaded] = useFonts({
-    Jost_400Regular,
-    Jost_700Bold,
-    Jost_600SemiBold,
-    Jost_500Medium
+
+  let [fontsLoaded] = useFonts({
+    'Jost-SemiBold': require('./assets/fonts/Jost-SemiBold.ttf'),
+    'Jost-Regular':  require('./assets/fonts/Jost-Regular.ttf'),
+    'Jost-Bold':  require('./assets/fonts/Jost-Bold.ttf'),
+    'Jost-Medium':  require('./assets/fonts/Jost-Medium.ttf')
   })
 
-if(!fontsLoaded){
-  <AppLoading></AppLoading>
-}
+  if(!fontsLoaded){
+    return null;
+  }
 
   return (
     <View style={styles.container}>

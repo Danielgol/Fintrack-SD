@@ -20,7 +20,7 @@ function Tabs(){
           headerShown: false,
           tabBarLabelStyle:{
             fontSize:10,
-            fontFamily: 'Jost_400Regular'
+            fontFamily: 'Jost-Regular'
           },
           tabBarIcon: ({ focused, color, size }) => {
             if (route.name === 'Início') {
@@ -111,7 +111,7 @@ export default function TabNavbar() {
         },
         headerTintColor:'white',
         headerTitleStyle:{
-          fontFamily:'Jost_700Bold'
+          fontFamily:'Jost-Bold'
         }
       })}>
         <Stack.Screen name="Home" component={Tabs} screenOptions={{headerShown: true}}></Stack.Screen>
