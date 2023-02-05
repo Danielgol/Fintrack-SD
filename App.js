@@ -9,7 +9,6 @@ import TabNavbar from './src/components/TabNavigation';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Header/>
       <TabNavbar style={styles.nav}></TabNavbar>
     </View>
   );

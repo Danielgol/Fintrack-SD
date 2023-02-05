@@ -3,49 +3,19 @@ import { Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import Profile from '../../pages/Profile';
 import Home from '../../pages/Home';
 import Calculator from '../../pages/Calculator';
 import Study from '../../pages/Study';
 import Quotes from '../../pages/Quotes';
+import Header from '../Header';
+import About from '../../pages/About';
 
-function HomeScreen() {
-  return (
-    <Home></Home>
-  );
-}
-
-function QuotesScreen(){
-  return (
-    <Quotes></Quotes>
-  );
-}
-
-function CalculatorScreen() {
-  return (
-    <Calculator></Calculator>
-  );
-}
-
-function StudyScreen(){
-  return (
-    <Study></Study>
-  );
-}
-
-function ProfileScreen() {
-  return (
-    <Profile></Profile>
-  );
-}
-
-const Tab = createBottomTabNavigator();
-
-export default function TabNavbar() {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator 
+function Tabs(){
+  return(
+    <Tab.Navigator 
         screenOptions={({ route }) => ({
           headerShown: false,
           tabBarLabelStyle:{
@@ -114,14 +84,36 @@ export default function TabNavbar() {
       >
         <Tab.Screen
           name="Início"
-          component={HomeScreen}
+          component={Home}
           options={{ tabBarBadge: 3 }}
         />
-        <Tab.Screen name="Cotações" component={QuotesScreen} />
-        <Tab.Screen name="Calculadora" component={CalculatorScreen} />
-        <Tab.Screen name="Estudo" component={StudyScreen} />
-        <Tab.Screen name="Perfil" component={ProfileScreen} />
-      </Tab.Navigator>
+        <Tab.Screen name="Cotações" component={Quotes} />
+        <Tab.Screen name="Calculadora" component={Calculator} />
+        <Tab.Screen name="Estudo" component={Study} />
+        <Tab.Screen name="Perfil" component={Profile} />
+    </Tab.Navigator>
+  )
+}
+
+const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+export default function TabNavbar() {
+  return (
+    <NavigationContainer>
+      <Header></Header>
+      <Stack.Navigator initialRouteName="Home" 
+      screenOptions={({ route }) => ({
+        headerShown: route.name === 'Sobre' ? true : false,
+        headerStyle: {
+          backgroundColor: '#6A5ACD'
+        },
+        headerTintColor:'white'
+      })}>
+        <Stack.Screen name="Home" component={Tabs} screenOptions={{headerShown: true}}></Stack.Screen>
+        <Stack.Screen name="Sobre" component={About}></Stack.Screen>
+      </Stack.Navigator>
+      {/*  */}
     </NavigationContainer>
   );
 }
