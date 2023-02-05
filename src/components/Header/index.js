@@ -12,7 +12,7 @@ export default function Header() {
     <View style={styles.container}>
       <Image style={styles.tinyLogo} source={require('../../../assets/logo-completa.png')}></Image>
       <TouchableOpacity onPress={() => navigation.navigate('Sobre')}>
-        <Icon style={styles.about} name="help-circle-outline" size={28} color="#A9A9A9"/>
+        <Icon style={styles.about} name="information-circle-outline" size={28} color="#A9A9A9"/>
       </TouchableOpacity>
     </View>
   );
