@@ -42,14 +42,14 @@ function ProfileScreen() {
 
 const Tab = createBottomTabNavigator();
 
-export default function App() {
+export default function TabNavbar() {
   return (
     <NavigationContainer>
       <Tab.Navigator 
         screenOptions={({ route }) => ({
           headerShown: false,
           tabBarLabelStyle:{
-            fontSize:10,
+            fontSize:10
           },
           tabBarIcon: ({ focused, color, size }) => {
             if (route.name === 'Início') {
