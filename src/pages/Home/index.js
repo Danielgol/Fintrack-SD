@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   },
   text:{
     fontSize:20,
-    fontWeight:'bold',
+    fontFamily:'Jost_600SemiBold',
     width:'60%' 
   },
   card:{
