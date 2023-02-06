@@ -26,15 +26,15 @@ export default function About() {
   return (
     <ScrollView>
     <View style={styles.about}>
-      <LinearGradient colors={['#69279c', '#6a2fa3', '#6a37aa', '#6a3eb1', '#6a46b8', '#6a4cbf', '#6a53c6', '#6a5acd']} style={styles.card}>
+      <View style={styles.card}>
        <Text style={styles.textTitle}>Propósito</Text>
        <Text style={styles.text}>O aplicativo Fintrack tem como objetivo ajudar as pessoas a aprenderem sobre educação financeira de maneira simples e intuitiva. Com ele, é possível visualizar as cotações de ativos financeiros e descobrir onde é o melhor lugar para investir seu dinheiro. Além disso, o Fintrack oferece recursos e ferramentas que ajudam na compreensão dos conceitos financeiros, tornando o processo de aprendizado mais acessível. O propósito do aplicativo é democratizar o conhecimento financeiro e ajudar as pessoas a alcançarem suas metas financeiras de maneira mais eficiente.</Text>
-      </LinearGradient>
+      </View>
       <View>
-        <LinearGradient colors={['#69279c', '#6a2fa3', '#6a37aa', '#6a3eb1', '#6a46b8', '#6a4cbf', '#6a53c6', '#6a5acd']} style={styles.card}>
+        <View colors={['#69279c', '#6a2fa3', '#6a37aa', '#6a3eb1', '#6a46b8', '#6a4cbf', '#6a53c6', '#6a5acd']} style={styles.card}>
           <Text style={styles.textTitle}>Quem somos?</Text>
           <Text style={styles.text}>Somos uma equipe de estudantes da Universidade Federal Rural de Pernambuco (UFRPE), matriculados no curso de Ciência da Computação desde o semestre 2019.1. Temos como objetivo aprimorar nossos conhecimentos em tecnologia e desenvolvimento de software, além de buscar soluções inovadoras para problemas do dia a dia. Nossa formação acadêmica nos permite entender e aplicar as últimas tendências em tecnologia de maneira eficiente e efetiva. Acreditamos na importância da tecnologia para melhorar a qualidade de vida das pessoas e buscamos colaborar para isso com o Fintrack.</Text>
-        </LinearGradient>
+        </View>
         <View style={styles.profileContainer}>
             <LinearGradient colors={['#69279c', '#6a2fa3', '#6a37aa', '#6a3eb1', '#6a46b8', '#6a4cbf', '#6a53c6', '#6a5acd']} style={styles.profile}>
               <Image style={styles.imageProfile} source={require('../../../assets/images/daniel.png')}></Image>
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     height: '100%'
   },
   card:{
-    backgroundColor: 'purple',
+    backgroundColor: '#69279c',
     margin:20,
     marginHorizontal: 40,
     borderRadius: 15,

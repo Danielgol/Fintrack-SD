@@ -20,7 +20,8 @@ function Tabs(){
           headerShown: false,
           tabBarLabelStyle:{
             fontSize:10,
-            fontFamily: 'Jost-Regular'
+            fontFamily: 'Jost-Regular',
+            top: -3
           },
           tabBarIcon: ({ focused, color, size }) => {
             if (route.name === 'Início') {

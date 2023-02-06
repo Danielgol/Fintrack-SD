@@ -30,8 +30,9 @@ const styles = StyleSheet.create({
   },
   tinyLogo: {
     width: '28%',
-    height: 28,
+    height: '100%',
     marginLeft: '36%'
+
   },
 
   about: {
