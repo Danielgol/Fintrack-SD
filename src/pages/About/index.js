@@ -1,7 +1,26 @@
 import * as React from 'react';
-import {StyleSheet, Text, View, Image, ScrollView} from 'react-native';
+import {StyleSheet, Text, View, Image, ScrollView,TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Linking } from 'react-native';
+
+
+function OpenURLButton({ urlInsta, urlLinkedin }) {
+  return (
+    <View style={styles.buttons}>
+      <TouchableOpacity onPress={() => {
+        Linking.openURL(urlInsta).catch(err => console.error('An error occurred', err));
+        }}>
+          <Icon style={styles.button} name="logo-instagram" size={25} color="black"/>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => {
+        Linking.openURL(urlLinkedin).catch(err => console.error('An error occurred', err));
+        }}>
+          <Icon style={styles.button} name="logo-linkedin" size={25} color="black"/>
+      </TouchableOpacity>
+    </View>
+  );
+}
 
 export default function About() {
   return (
@@ -21,30 +40,21 @@ export default function About() {
               <Image style={styles.imageProfile} source={require('../../../assets/images/daniel.png')}></Image>
               <View style={styles.contact}>
                 <Text style={styles.name}>Daniel Rosa</Text>
-                <View style={styles.buttons}>
-                  <Icon style={styles.button} name="logo-instagram" size={25} color="black"/>
-                  <Icon style={styles.button} name="logo-linkedin" size={25} color="black"/>
-                </View>
+                <OpenURLButton urlInsta="https://instagram.com/daniells.rosa?igshid=NTdlMDg3MTY=" urlLinkedin="https://www.linkedin.com/in/daniel-rosa-b68555213/"></OpenURLButton>
               </View>
             </LinearGradient>
             <LinearGradient colors={['#69279c', '#6a2fa3', '#6a37aa', '#6a3eb1', '#6a46b8', '#6a4cbf', '#6a53c6', '#6a5acd']} style={styles.profile}>
               <Image style={styles.imageProfile} source={require('../../../assets/images/diego.jpg')}></Image>
               <View style={styles.contact}>
                 <Text style={styles.name}>Diego Pires</Text>
-                <View style={styles.buttons}>
-                  <Icon style={styles.button} name="logo-instagram" size={25} color="black"/>
-                  <Icon style={styles.button} name="logo-linkedin" size={25} color="black"/>
-                </View>
+                <OpenURLButton urlInsta="https://instagram.com/diegospf_?igshid=NmQ2ZmYxZjA=" urlLinkedin="https://www.linkedin.com/in/diego-pires-0aa294240/"></OpenURLButton>
               </View>
             </LinearGradient>
             <LinearGradient colors={['#69279c', '#6a2fa3', '#6a37aa', '#6a3eb1', '#6a46b8', '#6a4cbf', '#6a53c6', '#6a5acd']} style={styles.profile}>
              <Image style={styles.imageProfile} source={require('../../../assets/images/joao.jpg')}></Image>
              <View style={styles.contact}>
               <Text style={styles.name}>João Cavalcanti</Text>
-              <View style={styles.buttons}>
-                <Icon style={styles.button} name="logo-instagram" size={25} color="black"/>
-                <Icon style={styles.button} name="logo-linkedin" size={25} color="black"/>
-              </View>
+              <OpenURLButton urlInsta="https://instagram.com/jvcvalcanti?igshid=NTdlMDg3MTY=" urlLinkedin="https://www.linkedin.com/in/jvcavalcanti/"></OpenURLButton>
              </View>
             </LinearGradient>
         </View>
