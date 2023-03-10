@@ -13,16 +13,16 @@ export default function Quotes() {
   const [coins, setCoins] = useState([]);
   const [selectedCoin, setSelectedCoin] = useState('BRL');
 
-  function handleClick() {
-    if (quotes) {
-      setCor('#A9A9A9');
-      setCor2('#6A5ACD');
-      setQuotes(false)
-    } else {
+  function handleClickCotacao() {
       setCor('#6A5ACD');
       setCor2('#A9A9A9');
       setQuotes(true)
-    }
+  }
+
+  function handleClickAcao(){
+      setCor('#A9A9A9');
+      setCor2('#6A5ACD');
+      setQuotes(false)
   }
 
   const coinsObject = [{label: 'BRL', value: 'BRL'}].concat(coins.map((coin) => {
@@ -44,10 +44,10 @@ export default function Quotes() {
   return (
     <View style={styles.quotes}>
       <View style={styles.buttons}>
-      <TouchableOpacity style={{backgroundColor: cor, padding: 5, borderColor:'black', borderWidth:1, width:'30%', alignItems:'center'}} onPress={handleClick}>
+      <TouchableOpacity style={{backgroundColor: cor, padding: 5, borderColor:'black', borderWidth:1, width:'30%', alignItems:'center'}} onPress={handleClickCotacao}>
           <Text style={styles.text}>Cotações</Text> 
         </TouchableOpacity>
-        <TouchableOpacity style={{backgroundColor: cor2, padding: 5, borderColor:'black', borderWidth:1, width:'30%', alignItems:'center'}} onPress={handleClick}>
+        <TouchableOpacity style={{backgroundColor: cor2, padding: 5, borderColor:'black', borderWidth:1, width:'30%', alignItems:'center'}} onPress={handleClickAcao}>
           <Text style={styles.text}>Ações</Text> 
         </TouchableOpacity>
       </View>
