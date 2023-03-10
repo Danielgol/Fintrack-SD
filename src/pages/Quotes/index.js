@@ -3,7 +3,6 @@ import { useState, useEffect} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import RNPickerSelect from "react-native-picker-select";
 import Icon from 'react-native-vector-icons/Ionicons';
-import TinyButton from '../../components/Modal/TinyButton';
 import axios from 'axios';
 import CoinModal from '../../components/Modal/CoinModal';
 
