@@ -22,6 +22,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <TabNavbar style={styles.nav}></TabNavbar>
+      <StatusBar style="inverted"></StatusBar>
     </View>
   );
 }
@@ -29,7 +30,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#444850',
   }
 });
 

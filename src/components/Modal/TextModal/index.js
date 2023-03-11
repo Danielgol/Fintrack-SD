@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 export default function TextModal(props) {
     const navigation = useNavigation();
     return(
-        <TouchableOpacity style={styles.cardColumn}> 
+        <TouchableOpacity style={styles.cardColumn} onPress={() => navigation.navigate(props.navigate)}> 
             <Text style={styles.textTitle}>{props.title}</Text>
             <Text style={styles.text}>{props.text}</Text>
         </TouchableOpacity>
@@ -29,11 +29,13 @@ const styles = StyleSheet.create({
     marginBottom:'10%'
   },
   cardColumn:{
-    backgroundColor: 'rgba(34,36,40,1)', 
+    backgroundColor: '#6A5ACD', 
     borderColor:'#7765e6',
     borderWidth:1, 
     marginVertical:'10%',
     flexDirection: 'column',
     alignItems: 'center',
+    borderRadius: 8,
+    height: '20%',
   }
   });

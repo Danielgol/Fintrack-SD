@@ -11,7 +11,7 @@ export default function Profile() {
 
 const styles = StyleSheet.create({
   profile: {
-    backgroundColor: 'rgba(34,36,40,1)',
+    backgroundColor: '#444850',
     height: '100%'
   },
 });

@@ -27,10 +27,11 @@ const navigation = useNavigation();
 
 const styles = StyleSheet.create({
   home: {
-    backgroundColor: 'rgba(34,36,40,1)',
+    backgroundColor: '#444850',
     height: '100%'
   },
   card:{
+    marginTop: 10,
     marginBottom:50
   },
   containerCardsColumn: {

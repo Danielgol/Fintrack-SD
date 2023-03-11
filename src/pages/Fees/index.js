@@ -19,33 +19,27 @@ export default function Fees() {
   return (
     <View style={styles.calculator}>
       <View style={styles.container}>
-        <View style={[styles.row]}>
+        <View>
+          <Text style={styles.label}>
+            Taxa de Juros:
+          </Text>
           <TextInput
-            top={30}
+            style={styles.input}
             //autoFocus={true}
-            borderRadius={8}
-            padding={10}
-            fontSize={20}
-            width={210}
-            elevation={4}
-            backgroundColor='#808080'
             keyboardType='numeric'
-            placeholder="Digite a taxa de juros."
+            placeholder="Digite a taxa de juros"
             onChangeText={handleTextChange}
             //value={String(props.auxValue)}
           />
         </View>
-        <View style={[styles.row]}>
+        <View>
+          <Text style={styles.label}>
+              Valor inicial:
+          </Text>
           <TextInput
-            top={50}
-            borderRadius={8}
-            padding={10}
-            fontSize={20}
-            width={210}
-            elevation={4}
-            backgroundColor='#808080'
+            style={styles.input}
             keyboardType='numeric'
-            placeholder="Digite o valor inicial."
+            placeholder="Digite o valor inicial"
             //onChangeText={(text) => handleEditChange(text, props) }
             //value={String(props.auxValue)}
           />
@@ -57,16 +51,29 @@ export default function Fees() {
 
 const styles = StyleSheet.create({
   calculator: {
-    backgroundColor: 'rgba(34,36,40,1)',
+    backgroundColor: '#444850',
     height: '100%'
   },
   container:{
     marginHorizontal: '20%',
-    height: '100%'
+    height: '100%',
+    paddingTop: 20,
+    alignItems: 'center',
   },
-  row: {
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'center',
+  input: {
+    borderRadius:8,
+    padding:10,
+    fontSize:15,
+    width:210,
+    elevation:4,
+    backgroundColor:'#B2B2B2',
+    fontFamily: 'Jost-Regular',
+    
   },
+  label:{
+    marginTop: 20,
+    marginBottom: 5,
+    color: '#fff',
+    fontFamily: 'Jost-SemiBold',
+  }
 });

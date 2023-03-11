@@ -5,6 +5,7 @@ import RNPickerSelect from "react-native-picker-select";
 import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
 import CoinModal from '../../components/Modal/CoinModal';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function Quotes() {
   const [quotes, setQuotes] = useState(true);
@@ -44,54 +45,92 @@ export default function Quotes() {
   return (
     <View style={styles.quotes}>
       <View style={styles.buttons}>
-      <TouchableOpacity style={{backgroundColor: cor, padding: 5, borderColor:'black', borderWidth:1, width:'30%', alignItems:'center'}} onPress={handleClickCotacao}>
+      <TouchableOpacity style={{backgroundColor: cor, padding: 5, borderColor:'black', borderTopLeftRadius:10, borderBottomLeftRadius: 10, borderWidth: 0.5, width:'30%', alignItems:'center'}} onPress={handleClickCotacao}>
           <Text style={styles.text}>Cotações</Text> 
         </TouchableOpacity>
-        <TouchableOpacity style={{backgroundColor: cor2, padding: 5, borderColor:'black', borderWidth:1, width:'30%', alignItems:'center'}} onPress={handleClickAcao}>
+        <TouchableOpacity style={{backgroundColor: cor2, padding: 5, borderColor:'black', borderWidth: 0.5, width:'30%', alignItems:'center', borderTopRightRadius:10, borderBottomRightRadius: 10}} onPress={handleClickAcao}>
           <Text style={styles.text}>Ações</Text> 
         </TouchableOpacity>
       </View>
+      
       <View style={styles.selectCoin}>
-        <Text style={styles.text}>Escolha sua moeda:</Text>
+        <Text style={styles.textSelectCoin}>Escolha sua moeda:</Text>
         <RNPickerSelect placeholder={{}} onValueChange={(value) => (value) ? setSelectedCoin(value) : setSelectedCoin('BRL')} items={coinsObject}>
-                  <View style={styles.buttons}>
-                    <Text style={styles.text}>{selectedCoin}</Text> 
-                    <Icon name="chevron-down-outline" size={20} color="black"></Icon>
-                  </View>
+                  <TouchableOpacity style={styles.buttonCoin}>
+                    <Text style={styles.textSelect}>{selectedCoin}</Text> 
+                    <Icon name="chevron-down-outline" size={20} color="white"></Icon>
+                  </TouchableOpacity>
         </RNPickerSelect>
       </View>
-      {coinsObject.map((coin) => (
-        <CoinModal key={coin.label} selectedCoin={selectedCoin} coin={coin.label}/>
-      ))}
+      <View style={{height: '75%'}}>
+        <ScrollView style={styles.results}>
+          {coinsObject.map((coin) => (
+            <CoinModal key={coin.label} selectedCoin={selectedCoin} coin={coin.label}/>
+          ))}
+        </ScrollView>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   quotes: {
-    backgroundColor: 'rgba(34,36,40,1)',
+    backgroundColor: '#444850',
     height: '100%'
   },
   buttons: {
     flexDirection: 'row',
     justifyContent:'center',
+    marginTop: 15,
+    borderRadius: 100,
   },
   selectCoin:{
     flexDirection: 'row',
     justifyContent:'space-between',
-    marginHorizontal: 40,
-    backgroundColor: '#A9A9A9', 
+    marginHorizontal: 30,
+    backgroundColor: '#6A5ACD', 
     padding: 5, 
     borderColor:'black', 
-    borderWidth:1, 
+    borderWidth: 0.5, 
     alignItems:'center',
-    marginVertical: 20,
-    borderRadius: 5
+    marginTop: 20,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10
+  },
+  buttonCoin:{
+
+    flexDirection:'row',
+    marginRight: 5,
+    borderRadius: 10,
+    paddingRight: 5,
+    paddingLeft: 3,
+ 
   },
   text: {
     fontFamily:'Jost-Medium',
     fontSize:18,
-    marginHorizontal:5
+    marginHorizontal:5,
+  },
+  textSelectCoin: {
+    fontFamily:'Jost-Medium',
+    fontSize:18,
+    marginHorizontal:5,
+    color: '#fff',
+  },
+  textSelect: {
+    fontFamily:'Jost-Medium',
+    fontSize:18,
+    marginHorizontal:5,
+    color: '#fff'
+  },
+  results:{
+    backgroundColor: '#222428',
+    marginHorizontal: 30,
+    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 20,
+    borderColor:'black', 
+    borderWidth: 0.5, 
+    paddingVertical: 10,
   }
 
 });

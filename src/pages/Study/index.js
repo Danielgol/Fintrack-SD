@@ -47,12 +47,12 @@ export default function Study() {
 
 const styles = StyleSheet.create({
   study: {
-    backgroundColor: 'rgba(34,36,40,1)',
+    backgroundColor: '#444850',
     height: '100%',
-    marginBottom: 30
+    marginBottom: 45
   },
   card:{
-    marginBottom: 30,
+    marginVertical: 15,
     marginHorizontal: 24,
     backgroundColor: '#7765e6',
     flex: 1,
@@ -65,11 +65,13 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold',
     marginBottom: 15,
+    fontFamily: 'Jost-Bold',
   },
   cardText:{
     color: '#ffffff',
     fontSize: 15,
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'Jost-Medium',
   },
   cardImage:{
     width: 150,

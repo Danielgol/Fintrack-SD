@@ -36,11 +36,11 @@ export default function CoinModal(props) {
 
 const styles = StyleSheet.create({
     selectCoin:{
-      marginHorizontal: 40,
+      marginHorizontal: 30,
       marginVertical:7,
       flexDirection: 'row',
       justifyContent:'space-between',
-      backgroundColor: '#A9A9A9', 
+      backgroundColor: '#6A5ACD', 
       padding: 5, 
       borderColor:'black', 
       borderWidth:1, 
@@ -50,7 +50,8 @@ const styles = StyleSheet.create({
     text: {
       fontFamily:'Jost-Medium',
       fontSize:16,
-      marginHorizontal:5
+      marginHorizontal:5,
+      color: '#fff'
     }
   
   });
