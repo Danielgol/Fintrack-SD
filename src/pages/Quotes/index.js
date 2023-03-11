@@ -11,18 +11,24 @@ export default function Quotes() {
   const [quotes, setQuotes] = useState(true);
   const [cor, setCor] = useState('#6A5ACD');
   const [cor2, setCor2] = useState('#A9A9A9');
+  const [textColor, setTextColor] = useState('#fff');
+  const [textColor2, setTextColor2] = useState('#000');
   const [coins, setCoins] = useState([]);
   const [selectedCoin, setSelectedCoin] = useState('BRL');
 
   function handleClickCotacao() {
       setCor('#6A5ACD');
       setCor2('#A9A9A9');
+      setTextColor('#fff');
+      setTextColor2('#000');
       setQuotes(true)
   }
 
   function handleClickAcao(){
       setCor('#A9A9A9');
       setCor2('#6A5ACD');
+      setTextColor('#000');
+      setTextColor2('#fff');
       setQuotes(false)
   }
 
@@ -46,10 +52,10 @@ export default function Quotes() {
     <View style={styles.quotes}>
       <View style={styles.buttons}>
       <TouchableOpacity style={{backgroundColor: cor, padding: 5, borderColor:'black', borderTopLeftRadius:10, borderBottomLeftRadius: 10, borderWidth: 0.5, width:'30%', alignItems:'center'}} onPress={handleClickCotacao}>
-          <Text style={styles.text}>Cotações</Text> 
+          <Text style={{ fontFamily:'Jost-Medium', fontSize:18, marginHorizontal:5, color: textColor}}>Cotações</Text> 
         </TouchableOpacity>
         <TouchableOpacity style={{backgroundColor: cor2, padding: 5, borderColor:'black', borderWidth: 0.5, width:'30%', alignItems:'center', borderTopRightRadius:10, borderBottomRightRadius: 10}} onPress={handleClickAcao}>
-          <Text style={styles.text}>Ações</Text> 
+          <Text style={{ fontFamily:'Jost-Medium', fontSize:18, marginHorizontal:5, color: textColor2}}>Ações</Text> 
         </TouchableOpacity>
       </View>
       
@@ -107,8 +113,8 @@ const styles = StyleSheet.create({
  
   },
   text: {
-    fontFamily:'Jost-Medium',
-    fontSize:18,
+    fontFamily:'Jost-Medium', 
+    fontSize:18, 
     marginHorizontal:5,
   },
   textSelectCoin: {
