@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   text:{
     marginTop:10,
     color: 'white',
-    textAlign: 'left',
+    textAlign: 'justify',
     fontFamily: 'Jost-Medium'
   },
   profile:{
