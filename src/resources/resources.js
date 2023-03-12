@@ -1,0 +1,2 @@
+export const all = [{label: 'BRL', value: 'BRL'}, {label: 'USD', value: 'USD'},{label: 'CAD', value: 'CAD'}, {label: 'GBP', value: 'GBP'}, {label: 'ARS', value: 'ARS'}, {label: 'EUR', value: 'EUR'}, {label: 'JPY', value: 'JPY'}, {label: 'CHF', value: 'CHF'},{label: 'AUD', value: 'AUD'}, {label: 'CNY', value: 'CNY'}, {label: 'ILS', value: 'ILS'}]
+export const primoryCoins = [{label: 'BRL', value: 'BRL'}, {label: 'USD', value: 'USD'}, {label: 'EUR', value: 'EUR'}]

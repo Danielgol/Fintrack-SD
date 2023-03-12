@@ -13,6 +13,7 @@ import Quotes from '../../pages/Quotes';
 import Header from '../Header';
 import About from '../../pages/About';
 import Fees from '../../pages/Fees';
+import Converter from '../../pages/Converter';
 
 function Tabs(){
   return(
@@ -107,7 +108,7 @@ export default function TabNavbar() {
       <Header></Header>
       <Stack.Navigator initialRouteName="Home" 
       screenOptions={({ route }) => ({
-        headerShown: route.name === 'Sobre' || route.name === 'Juros' ? true : false,
+        headerShown: route.name === 'Sobre' || route.name === 'Juros' || route.name === 'Conversor' ? true : false,
         headerStyle: {
           backgroundColor: '#6A5ACD'
         },
@@ -119,6 +120,7 @@ export default function TabNavbar() {
         <Stack.Screen name="Home" component={Tabs} screenOptions={{headerShown: true}}></Stack.Screen>
         <Stack.Screen name="Sobre" component={About}></Stack.Screen>
         <Stack.Screen name="Juros" component={Fees}></Stack.Screen>
+        <Stack.Screen name="Conversor" component={Converter}></Stack.Screen>
       </Stack.Navigator>
       {/*  */}
     </NavigationContainer>

@@ -10,7 +10,7 @@ export default function Calculator() {
       <View style={styles.container}>
         <TextModal title="Investimento" text="Insira o seu objetivo e veja os melhores locais para realizar um investimento"></TextModal>
         <TextModal navigate='Juros' title="Juros" text="Calcule de diferentes maneiras como os juros irá lhe afetar"></TextModal>
-        <TextModal title="Conversor" text="Converta diferentes moedas e criptomoedas para o valor que desejar!"></TextModal>
+        <TextModal navigate='Conversor'  title="Conversor" text="Converta diferentes moedas e criptomoedas para o valor que desejar!"></TextModal>
       </View> 
     </View>
   );
