@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { useState, useEffect} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
 import RNPickerSelect from "react-native-picker-select";
 import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
 import CoinModal from '../../components/Modal/CoinModal';
 import { ScrollView } from 'react-native-gesture-handler';
+import ExchangeModal from '../../components/Modal/ExchangeModal';
+import { primoryCoins, primoryExchange } from '../../resources/resources';
 
 export default function Quotes() {
   const [quotes, setQuotes] = useState(true);
@@ -15,6 +17,28 @@ export default function Quotes() {
   const [textColor2, setTextColor2] = useState('#000');
   const [coins, setCoins] = useState([]);
   const [selectedCoin, setSelectedCoin] = useState('BRL');
+  const [exchange, setExchange] = useState([]);
+  const [text, setText] = useState('');
+
+  const API_KEY = 'XEWZ5LDNHM5H4FCN'; 
+
+  async function handleClickSearch() {
+    if(text){
+      try {
+        const response = await axios.get(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${text}&apikey=${API_KEY}`);
+        setExchange(response.data.bestMatches.map(match => match['1. symbol']));
+      } catch (error) {
+        console.error(error);
+        return []; 
+      }
+    }else{
+      setExchange(primoryExchange)
+    }
+  }
+
+  const onChangeText = (newText) => {
+    setText(newText);
+  };
 
   function handleClickCotacao() {
       setCor('#6A5ACD');
@@ -36,14 +60,17 @@ export default function Quotes() {
     return { label: coin, value: coin };
   }));
 
+  const exchangeObject = exchange.map((exchange) => {
+    return { label: exchange, value: exchange };
+  });
+
   useEffect(() => {
+    setExchange(primoryExchange)
     axios.get('https://economia.awesomeapi.com.br/json/all')
         .then(response => {
-          // Trata a resposta da API aqui
           setCoins(Object.keys(response.data).map(key => key))
         })
         .catch(error => {
-          // Trata erros na requisição aqui
           console.log(error);
         });
   }, [])
@@ -58,23 +85,48 @@ export default function Quotes() {
           <Text style={{ fontFamily:'Jost-Medium', fontSize:18, marginHorizontal:5, color: textColor2}}>Ações</Text> 
         </TouchableOpacity>
       </View>
-      
-      <View style={styles.selectCoin}>
-        <Text style={styles.textSelectCoin}>Escolha sua moeda:</Text>
-        <RNPickerSelect placeholder={{}} onValueChange={(value) => (value) ? setSelectedCoin(value) : setSelectedCoin('BRL')} items={coinsObject}>
-                  <TouchableOpacity style={styles.buttonCoin}>
-                    <Text style={styles.textSelect}>{selectedCoin}</Text> 
-                    <Icon name="chevron-down-outline" size={20} color="white"></Icon>
+        {
+          quotes ?
+            <View style={styles.quotes}>
+              <View style={styles.selectCoin}>
+              <Text style={styles.textSelectCoin}>Escolha sua moeda:</Text>
+              <RNPickerSelect placeholder={{}} onValueChange={(value) => (value) ? setSelectedCoin(value) : setSelectedCoin('BRL')} items={coinsObject}>
+                        <TouchableOpacity style={styles.buttonCoin}>
+                          <Text style={styles.textSelect}>{selectedCoin}</Text> 
+                          <Icon name="chevron-down-outline" size={20} color="white"></Icon>
+                        </TouchableOpacity>
+              </RNPickerSelect>
+            </View>
+            <View style={{height: '75%'}}>
+              <ScrollView style={styles.results}>
+                {coinsObject.map((coin) => (
+                  <CoinModal key={coin.label} selectedCoin={selectedCoin} coin={coin.label}/>
+                ))}
+              </ScrollView>
+            </View>
+            </View>
+            :
+              <View style={styles.quotes}>
+              <View style={styles.selectCoin}>
+                  <TextInput
+                    style={{ width: '80%', fontFamily:'Jost-SemiBold', marginLeft:10, fontSize:20, color:'#fff'}}
+                    onChangeText={onChangeText}
+                    placeholder={'Pesquise por uma ação...'}
+                    value={text}
+                  />
+                  <TouchableOpacity style={{marginRight:10}} onPress={handleClickSearch}>
+                    <Icon name="search-circle-outline" size={40} color="white"></Icon>
                   </TouchableOpacity>
-        </RNPickerSelect>
-      </View>
-      <View style={{height: '75%'}}>
-        <ScrollView style={styles.results}>
-          {coinsObject.map((coin) => (
-            <CoinModal key={coin.label} selectedCoin={selectedCoin} coin={coin.label}/>
-          ))}
-        </ScrollView>
-      </View>
+            </View>
+            <View style={{height: '75%'}}>
+              <ScrollView style={styles.results}>
+                {exchangeObject.map((exchange) => (
+                  <ExchangeModal key={exchange.label} exchange={exchange.label}/>
+                ))}
+              </ScrollView>
+            </View>
+            </View>
+        }
     </View>
   );
 }

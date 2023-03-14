@@ -1,2 +1,3 @@
 export const all = [{label: 'BRL', value: 'BRL'}, {label: 'USD', value: 'USD'},{label: 'CAD', value: 'CAD'}, {label: 'GBP', value: 'GBP'}, {label: 'ARS', value: 'ARS'}, {label: 'EUR', value: 'EUR'}, {label: 'JPY', value: 'JPY'}, {label: 'CHF', value: 'CHF'},{label: 'AUD', value: 'AUD'}, {label: 'CNY', value: 'CNY'}, {label: 'ILS', value: 'ILS'}]
 export const primoryCoins = [{label: 'BRL', value: 'BRL'}, {label: 'USD', value: 'USD'}, {label: 'EUR', value: 'EUR'}]
+export const primoryExchange = ["AMZO34.SAO","PETR4.SAO","NFLX34.SAO","AMER3.SAO","MGLU3.SAO","NUBR33.SAO","ITUB4.SAO","VALE3.SAO","EMBR3.SAO","AZUL4.SAO"]
