@@ -6,7 +6,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 import LargeButton from '../../components/Modal/LargeModal';
 
 export default function Home() {
-const navigation = useNavigation();
 
   return (
     <ScrollView style={styles.home}>

@@ -96,14 +96,14 @@ export default function Quotes() {
                           <Icon name="chevron-down-outline" size={20} color="white"></Icon>
                         </TouchableOpacity>
               </RNPickerSelect>
-            </View>
-            <View style={{height: '75%'}}>
-              <ScrollView style={styles.results}>
-                {coinsObject.map((coin) => (
-                  <CoinModal key={coin.label} selectedCoin={selectedCoin} coin={coin.label}/>
-                ))}
-              </ScrollView>
-            </View>
+              </View>
+              <View style={{height: '75%'}}>
+                <ScrollView style={styles.results}>
+                  {coinsObject.map((coin) => (
+                    <CoinModal key={coin.label} selectedCoin={selectedCoin} coin={coin.label}/>
+                  ))}
+                </ScrollView>
+              </View>
             </View>
             :
               <View style={styles.quotes}>

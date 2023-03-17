@@ -8,24 +8,28 @@ export default function CoinModal(props) {
 
     const [bid, setBid] = useState('');
     const [name, setName] = useState('');
+    const [data, setData] = useState([])
+    const navigation = useNavigation();
 
     useEffect(() => {
         axios.get(`https://economia.awesomeapi.com.br/json/${props.selectedCoin}-${props.coin}`)
         .then(response => {
-          // Trata a resposta da API aqui
           setBid(response.data[0]['bid']);
           setName(response.data[0]['name'].split('/')[1])
+          setData(response.data[0])
         })
         .catch(error => {
           setBid(null);
         });
-    })
+    },[props.selectedCoin])
     function Modal() {
         if (bid) {
-          return  <View style={styles.selectCoin}> 
-                    <Text style={styles.text}>{name}({props.coin})</Text>
-                    <Text style={styles.text}>{bid}</Text>     
-                  </View>
+          return  <TouchableOpacity  onPress={() => navigation.navigate('Detalhes', {type:'coin', data:data})}>
+                    <View style={styles.selectCoin}> 
+                      <Text style={styles.text}>{name}({props.coin})</Text>
+                      <Text style={styles.text}>{bid}</Text>     
+                    </View>
+                  </TouchableOpacity>  
         }
         return null;
       }

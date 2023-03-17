@@ -5,10 +5,14 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function ExchangeModal(props) {
+  const navigation = useNavigation();
+
     return(
+      <TouchableOpacity onPress={() => navigation.navigate('Detalhes', {type:'exchange', data: props.exchange})}>
         <View style={styles.selectCoin}> 
             <Text style={styles.text}>{props.exchange}</Text>    
         </View>
+      </TouchableOpacity>
     )
 }
 
