@@ -41,13 +41,13 @@ export default function ExchangeDetails(props){
                     {
                         dataSearch && data ? 
                         <View>
-                            <Text style={styles.text}>Ação: {dataSearch['2. name']}({dataSearch['1. symbol']})</Text>
-                            <Text style={styles.text}>Valor: {data["05. price"]}({dataSearch['8. currency']})</Text>
-                            <Text style={styles.text}>Região: {dataSearch['4. region']}</Text>
-                            <Text style={styles.text}>Variação: {data['09. change']}({data['10. change percent']})</Text>
-                            <Text style={styles.text}>Pico do dia: {data["03. high"]}({dataSearch['8. currency']})</Text>
-                            <Text style={styles.text}>Baixa do dia: {data["04. low"]}({dataSearch['8. currency']})</Text>
-                            <Text style={styles.text}>Fechamento anterior: {data["08. previous close"]}({dataSearch['8. currency']})</Text>
+                            <Text style={styles.textTopic}>Ação: <Text style={styles.text}>{dataSearch['2. name']}({dataSearch['1. symbol']})</Text></Text>
+                            <Text style={styles.textTopic}>Valor: <Text style={styles.text}>{data["05. price"]}({dataSearch['8. currency']})</Text></Text>
+                            <Text style={styles.textTopic}>Região:  <Text style={styles.text}>{dataSearch['4. region']}</Text></Text>
+                            <Text style={styles.textTopic}>Variação:  <Text style={styles.text}>{data['09. change']}({data['10. change percent']})</Text></Text>
+                            <Text style={styles.textTopic}>Pico do dia:  <Text style={styles.text}>{data["03. high"]}({dataSearch['8. currency']})</Text></Text>
+                            <Text style={styles.textTopic}>Baixa do dia:  <Text style={styles.text}>{data["04. low"]}({dataSearch['8. currency']})</Text></Text>
+                            <Text style={styles.textTopic}>Fechamento anterior:  <Text style={styles.text}>{data["08. previous close"]}({dataSearch['8. currency']})</Text></Text>
                         </View>
                         :
                         <View>
@@ -72,6 +72,12 @@ const styles = StyleSheet.create({
         marginHorizontal:15,
         color: '#fff',
     },
+    textTopic: {
+        fontFamily:'Jost-SemiBold',
+        fontSize:18,
+        marginHorizontal:15,
+        color: '#fff',
+    },
     textWarning: {
         fontFamily:'Jost-Bold',
         fontSize:18,
@@ -80,7 +86,7 @@ const styles = StyleSheet.create({
     },
     text:{
         fontFamily:'Jost-Regular',
-        fontSize:20,
+        fontSize:16,
         marginHorizontal:20,
         marginVertical:10,
         color: '#fff',

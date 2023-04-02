@@ -10,12 +10,12 @@ export default function CoinDetails(props){
             </View>
             <View style={{height: '75%'}}>
                 <ScrollView style={styles.results}>
-                    <Text style={styles.text}>De: {props.data.name.split('/')[0]} ({props.data.code})</Text>
-                    <Text style={styles.text}>Para: {props.data.name.split('/')[1]} ({props.data.codein})</Text>
-                    <Text style={styles.text}>Valor: {props.data.bid} ({props.data.pctChange}%)</Text>
-                    <Text style={styles.text}>Variação: {props.data.varBid}</Text>
-                    <Text style={styles.text}>Pico do dia: {props.data.high}</Text>
-                    <Text style={styles.text}>Baixa do dia: {props.data.low}</Text>
+                    <Text style={styles.textTopic}>De:  <Text style={styles.text}>{props.data.name.split('/')[0]} ({props.data.code})</Text></Text>
+                    <Text style={styles.textTopic}>Para:  <Text style={styles.text}>{props.data.name.split('/')[1]} ({props.data.codein})</Text></Text>
+                    <Text style={styles.textTopic}>Valor:  <Text style={styles.text}>{props.data.bid} ({props.data.pctChange}%)</Text></Text>
+                    <Text style={styles.textTopic}>Variação:  <Text style={styles.text}>{props.data.varBid}</Text></Text>
+                    <Text style={styles.textTopic}>Pico do dia:  <Text style={styles.text}>{props.data.high}</Text></Text>
+                    <Text style={styles.textTopic}>Baixa do dia:  <Text style={styles.text}>{props.data.low}</Text></Text>
                 </ScrollView>
             </View>
         </View>
@@ -33,9 +33,16 @@ const styles = StyleSheet.create({
         marginHorizontal:15,
         color: '#fff',
     },
+    textTopic:{
+        fontFamily:'Jost-SemiBold',
+        fontSize:21,
+        marginHorizontal:20,
+        marginVertical:15,
+        color: '#fff',
+    },
     text:{
         fontFamily:'Jost-Regular',
-        fontSize:20,
+        fontSize:18,
         marginHorizontal:20,
         marginVertical:10,
         color: '#fff',
