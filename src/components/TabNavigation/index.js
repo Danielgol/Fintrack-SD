@@ -90,7 +90,6 @@ function Tabs(){
         <Tab.Screen
           name="Início"
           component={Home}
-          options={{ tabBarBadge: 3 }}
         />
         <Tab.Screen name="Cotações" component={Quotes} />
         <Tab.Screen name="Calculadora" component={Calculator} />
