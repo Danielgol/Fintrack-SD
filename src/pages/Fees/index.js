@@ -1,4 +1,5 @@
 import * as React from 'react';
+import axios from 'axios';
 import {StyleSheet, Text, View , TouchableOpacity, Dimensions, TextInput} from 'react-native';
 import LargeButton from '../../components/Modal/LargeModal';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -9,29 +10,39 @@ const { width, height } = Dimensions.get("screen");
 
 export default function Fees() {
 
+  const [capital, setCapital] = React.useState('');
   const [taxa, setTaxa] = React.useState('');
+  const [tempo, setTempo] = React.useState('');
+  const [resposta, setResposta] = React.useState('');
+  
+  function calculateFees(){
+    const url = `https://fee-calculator.onrender.com/jurosSimples/capital/${capital}/taxa/${taxa}/tempo/${tempo}`
+    axios.get(url)
+        .then(response => {
+          //setResposta(response);
+          alert(response.data);
+          setResposta(response.data);
+        }).catch(error => {
+          //setResposta(error);
+          alert(error)
+        });
+  }
 
-  const handleTextChange = (taxa) => {
+  const handleCapitalChange = (capital) => {
+    setCapital(capital);
+  };
+
+  const handleTaxaChange = (taxa) => {
     setTaxa(taxa);
-    console.log(taxa);
+  };
+
+  const handleTempoChange = (tempo) => {
+    setTempo(tempo);
   };
 
   return (
     <View style={styles.calculator}>
       <View style={styles.container}>
-        <View>
-          <Text style={styles.label}>
-            Taxa de Juros:
-          </Text>
-          <TextInput
-            style={styles.input}
-            //autoFocus={true}
-            keyboardType='numeric'
-            placeholder="Digite a taxa de juros"
-            onChangeText={handleTextChange}
-            //value={String(props.auxValue)}
-          />
-        </View>
         <View>
           <Text style={styles.label}>
               Valor inicial:
@@ -40,9 +51,39 @@ export default function Fees() {
             style={styles.input}
             keyboardType='numeric'
             placeholder="Digite o valor inicial"
-            //onChangeText={(text) => handleEditChange(text, props) }
+            onChangeText={(text) => handleCapitalChange(text)}
             //value={String(props.auxValue)}
           />
+        </View>
+        <View>
+          <Text style={styles.label}>
+            Taxa de Juros:
+          </Text>
+          <TextInput
+            style={styles.input}
+            keyboardType='numeric'
+            placeholder="Digite a taxa de juros"
+            onChangeText={(text) => handleTaxaChange(text)}
+            //value={String(props.auxValue)}
+          />
+        </View>
+        <View>
+          <Text style={styles.label}>
+            Tempo de Pagamento:
+          </Text>
+          <TextInput
+            style={styles.input}
+            //autoFocus={true}
+            keyboardType='numeric'
+            placeholder="Digite o tempo do pagamento"
+            onChangeText={(text) => handleTempoChange(text)}
+            //value={String(props.auxValue)}
+          />
+        </View>
+        <View>
+          <TouchableOpacity onPress={ () => calculateFees()}>
+            <Text>Calcular</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
