@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import {StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { ScrollView } from 'react-native-gesture-handler';
+
+import imageModerado from '../../../assets/images/Moderado.png'
+import imageConservador from '../../../assets/images/Conservador.png'
+import imageArrojado from '../../../assets/images/Arrojado.png'
+import imageArrojadoModerado from '../../../assets/images/ArrojadoModerado.png'
+import imageConservadorModerado from '../../../assets/images/ConservadorModerado.png'
 
 const STORAGE_KEY = 'investorProfile';
 
@@ -270,6 +277,52 @@ export default function Profile() {
       </View>
     )
   }
+  
+  function nameProfile(name){
+    if(name === 'Arrojado'){
+      return 'Arrojado'
+    }else if(name === 'Neutro'){
+      return 'Moderado'
+    }else if(name === 'Conservador'){
+      return 'Conservador'
+    }else if(name === 'ConservadorModerado'){
+      return 'Conservador/Moderado'
+    }else if(name === 'ArrojadoModerado'){
+      return 'Arrojado/Moderado'
+    }
+
+    return null
+  }
+
+  function textProfile(name){
+    if(name === 'Arrojado'){
+      return 'Como o próprio nome já sugere, o perfil arrojado ou agressivo é aquele que não tem medo de tomar riscos ao investir. Os investidores arrojados são, geralmente, aqueles que já possuem bastante experiência no mercado e um patrimônio maior e mais estabelecido. Esse perfil de investidor entende que as perdas a curto prazo são momentâneas e necessárias para aproveitar lucros mais altos a longo prazo. Mesmo sendo arrojado, é muito recomendado que o investidor tenha uma reserva de emergência para situações do cotidiano que demandem dinheiro a curto prazo. É necessário possuir preparo técnico e emocional para acompanhar as oscilações do mercado, pois busca acumular ganhos altos que superam a média. Aplicações mais comuns para esse perfil: Fundos cambiais, Fundos multimercado, Fundos de investimento em participações (FIP), Certificados de depósitos de valores mobiliários (BDR), Mercado futuro (derivativos), Opções, dentre outros. É importante ressaltar que o perfil de investimento arrojado moderado não é adequado para todas as pessoas, especialmente aquelas que não possuem conhecimento e experiência suficientes para lidar com os riscos envolvidos. Portanto, antes de investir, é fundamental estudar bem o mercado financeiro e buscar a orientação de um especialista para definir a estratégia adequada ao seu perfil de investidor.'
+    }else if(name === 'Neutro'){
+      return 'Trata-se do investidor que opta por arriscar mais que o conservador em busca de mais rentabilidade. Porém, ele ainda não está disposto a assumir grandes riscos que resultem em uma perda significativa na carteira. Observa-se a mistura de seus recursos tanto na renda fixa como na variável na busca por retornos acima da média do mercado, mas ainda há a preferência da previsibilidade do rendimento. Assim, o perfil moderado procura equilibrar rentabilidade versus risco. Sua expectativa de retorno em médio e longo prazo. Aplicações mais comuns para esse perfil: Debêntures, Debêntures incentivadas, Certificado de recebíveis imobiliários (CRI), Certificado de recebíveis do agronegócio (CRA), Fundos de investimento em direitos creditórios (FIDC), Certificado de operações estruturadas (COE), Tesouro IPCA+, Ações, Fundos de ações, Fundos de investimento imobiliário (FII), Fundos de índice (ETF), Fundos de Previdência.'
+    }else if(name === 'Conservador'){
+      return 'Esse perfil não gosta de correr riscos, por isso prefere aplicações seguras. Ou seja, não estão muito dispostas a perder e buscam ganhos no longo prazo. Assim, esse investidor opta por retornos certos. A característica principal desse perfil é dar mais importância para a segurança, preservando seu patrimônio. Porém, nada o impede de arriscar em alguns produtos de renda variável, por exemplo, os fundos imobiliários que permitem investimentos no setor imobiliário com pouco dinheiro, promovem diversificação na carteira de investimentos, são isentos de imposto de renda e possuem liquidez. Aplicações mais comuns para esse perfil: Fundos de Renda Fixa, como títulos do Tesouro Direito, Tesouro Selic, Certificado de depósito bancário (CDB), LCs, Letra de crédito imobiliário (LCI); Letra de crédito do agronegócio (LCA), Letra de câmbio (LC), Fundos DI, entre outros investimentos com retorno previsível.'
+    }else if(name === 'ConservadorModerado'){
+      return 'O perfil de investimento misto entre conservador e moderado é aquele em que o investidor busca retornos seguros no longo prazo, mas está disposto a assumir um nível moderado de risco para alcançar ganhos maiores. Esse perfil de investidor prefere aplicações seguras, mas também está aberto a investimentos em produtos de renda variável, como fundos imobiliários, que permitem diversificação na carteira de investimentos e possuem liquidez. É importante ressaltar que, mesmo nesse perfil, é fundamental que o investidor tenha uma reserva de emergência para situações do cotidiano que demandem dinheiro a curto prazo, além de buscar a orientação de um especialista para definir a estratégia adequada ao seu perfil de investidor.'
+    }else if(name === 'ArrojadoModerado'){
+      return 'O perfil de investimento misto entre agressivo e moderado é aquele em que o investidor está disposto a assumir um nível moderado de risco, buscando retornos acima da média do mercado, mas sem se expor a perdas significativas na carteira. Esse perfil de investidor busca equilibrar rentabilidade versus risco, investindo em uma mescla de produtos de renda fixa e variável, visando uma expectativa de retorno em médio e longo prazo. O investidor deve estar preparado tanto tecnicamente quanto emocionalmente para acompanhar as oscilações do mercado, ciente de que as perdas a curto prazo são momentâneas e necessárias para aproveitar lucros mais altos a longo prazo. É importante ressaltar que, mesmo nesse perfil, é fundamental que o investidor tenha uma reserva de emergência para situações do cotidiano que demandem dinheiro a curto prazo, além de buscar a orientação de um especialista para definir a estratégia adequada ao seu perfil de investidor.'
+    }
+
+    return null
+  }
+
+  function imagePathProfile(name){
+    if(name === 'Arrojado'){
+      return imageArrojado
+    }else if(name === 'Neutro'){
+      return imageModerado
+    }else if(name === 'Conservador'){
+      return imageConservador
+    }else if(name === 'ConservadorModerado'){
+      return imageConservadorModerado
+    }else if(name === 'ArrojadoModerado'){
+      return imageArrojadoModerado
+    }
+  }
 
   return (
     <View style={styles.profile}>
@@ -331,16 +384,16 @@ export default function Profile() {
               <View style={styles.modal}>
                 <Text style={styles.textHeader}>Perfil</Text>
               </View>
-              <View style={{height: '80%'}}>
+              <ScrollView style={{height: '80%'}}>
                 <View style={{...styles.contentModal, padding:40 }}>
-                  <Icon name='person-circle-outline' size={150} color="#6A5ACD"/>
-                  <Text style={{fontFamily:'Jost-Bold', fontSize: 21, color:'white'}}>{data}</Text>
-                  <Text style={styles.text}>Texto personalizado para o tipo de perfil desse usuário</Text>
+                  <Image source={imagePathProfile(data)} style={{width:150, height:150}}></Image>
+                  <Text style={{fontFamily:'Jost-Bold', fontSize: 21, color:'white'}}>{nameProfile(data)}</Text>
                   <TouchableOpacity style={styles.button} onPress={ () => {handleSetData(''); setAnswers([]); setFormActive(false)}}>
                     <Text style={styles.textButton}>Refazer Teste</Text>
                   </TouchableOpacity>
+                  <Text style={{...styles.text,...{marginTop:30}}}>{textProfile(data)}</Text>
                 </View>
-              </View>
+              </ScrollView>
           </View>
           }
     </View>
