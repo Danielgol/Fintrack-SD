@@ -17,7 +17,6 @@ export default function Home() {
           <LargeButton text="Valores das ações!" bgColor="#fff623" navigate="Cotações" icon="trending-up-sharp"></LargeButton>
           <LargeButton text="Calcule qualquer tipo de juros!" bgColor="#45e1f8" navigate="Juros" icon="calculator-sharp"></LargeButton>
           <LargeButton text="Cotações do momento!" bgColor="#ff8f59" navigate="Cotações" icon="logo-bitcoin"></LargeButton>
-          <LargeButton text="Ajuda" bgColor="#f2cede" navigate="Estudo" icon="help-circle"></LargeButton>
         </View>
      </View>
     </ScrollView>

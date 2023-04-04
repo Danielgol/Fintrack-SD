@@ -78,7 +78,7 @@ export default function Quotes() {
   return (
     <View style={styles.quotes}>
       <View style={styles.buttons}>
-      <TouchableOpacity style={{backgroundColor: cor, padding: 5, borderColor:'black', borderTopLeftRadius:10, borderBottomLeftRadius: 10, borderWidth: 0.5, width:'30%', alignItems:'center'}} onPress={handleClickCotacao}>
+        <TouchableOpacity style={{backgroundColor: cor, padding: 5, borderColor:'black', borderTopLeftRadius:10, borderBottomLeftRadius: 10, borderWidth: 0.5, width:'30%', alignItems:'center'}} onPress={handleClickCotacao}>
           <Text style={{ fontFamily:'Jost-Medium', fontSize:18, marginHorizontal:5, color: textColor}}>Cotações</Text> 
         </TouchableOpacity>
         <TouchableOpacity style={{backgroundColor: cor2, padding: 5, borderColor:'black', borderWidth: 0.5, width:'30%', alignItems:'center', borderTopRightRadius:10, borderBottomRightRadius: 10}} onPress={handleClickAcao}>
