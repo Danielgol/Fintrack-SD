@@ -105,7 +105,7 @@ export default function Investiment() {
                 </View>
                 <View>
                   <Text style={styles.label}>
-                    Valor do aporte(Em Reais):
+                    Investimento mensal (Em Reais):
                   </Text>
                   <TextInput
                     style={styles.input}
