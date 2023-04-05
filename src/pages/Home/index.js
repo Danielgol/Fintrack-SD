@@ -11,7 +11,7 @@ export default function Home() {
     <ScrollView style={styles.home}>
      <View style={styles.card}>
         <View style={styles.containerCardsColumn}>
-          <LargeButton text="Compare a melhor forma de investir!" bgColor="#19eb7a" navigate="Calculadora" icon="wallet-sharp"></LargeButton>
+          <LargeButton text="Compare a melhor forma de investir!" bgColor="#19eb7a" navigate="Investimento" icon="wallet-sharp"></LargeButton>
           <LargeButton text="Qual é seu perfil de investidor?" bgColor="#d4d4d4" navigate="Perfil" icon="people-sharp"></LargeButton>
           <LargeButton text="Aprenda agora!" bgColor="#dead5b" navigate="Estudo" icon="book-sharp"></LargeButton>
           <LargeButton text="Valores das ações!" bgColor="#fff623" navigate="Cotações" icon="trending-up-sharp"></LargeButton>
